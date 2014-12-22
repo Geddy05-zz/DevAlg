@@ -16,6 +16,8 @@ public class Algoritmiek {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        klantGegevensBestand klantgegevens = new klantGegevensBestand();
+        klantgegevens.vulArray();
+        
     }
-    
 }
