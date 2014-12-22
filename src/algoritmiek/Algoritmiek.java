@@ -19,5 +19,13 @@ public class Algoritmiek {
         klantGegevensBestand klantgegevens = new klantGegevensBestand();
         klantgegevens.vulArray();
         
+        for(int i = 0; i <klantgegevens.KlantArray.length -1 ; i++ ){
+            System.out.println(klantgegevens.KlantArray[i].Voornaam);
+            try{
+            Thread.sleep(3000); 
+            }catch(Exception e){
+                
+            }
+        }
     }
 }
