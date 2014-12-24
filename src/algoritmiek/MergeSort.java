@@ -5,6 +5,8 @@
  */
 package algoritmiek;
 
+import static algoritmiek.Algoritmiek.klantgegevens;
+
 /**
  *
  * @author geddyS
@@ -54,4 +56,32 @@ public class MergeSort {
             i++;
         }
     }
+    
+    public int linearSearch(String Achternaam)
+    {
+        int index =0;
+        while(index< klantgegevens.KlantArray.length)
+        {
+            if (klantgegevens.KlantArray[index].Achternaam == Achternaam){
+                return index;
+            }else{
+                index++;
+            }
+        }
+        return -1;
+    }
+    
+    public void insertionSort (KlantInformatie inputArray[]){
+        for (int i = 1; i < inputArray.length ;i++){
+            KlantInformatie key = inputArray[i];
+            int j = i-1;
+            while(j >= 0 && inputArray[j].Achternaam.compareToIgnoreCase(key.Achternaam) > 0){
+                   inputArray[j+1] = inputArray[j];
+                   j--;
+                }
+                inputArray[j+1] = key;
+            }
+
+        }
+    
 }
