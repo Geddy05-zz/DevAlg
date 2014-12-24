@@ -18,11 +18,14 @@ public class Algoritmiek {
         // TODO code application logic here
         klantGegevensBestand klantgegevens = new klantGegevensBestand();
         klantgegevens.vulArray();
+        MergeSort mergesort = new MergeSort();
+        mergesort.sort(klantgegevens.KlantArray);
         
-        for(int i = 0; i <klantgegevens.KlantArray.length -1 ; i++ ){
+        for(int i = 0; i <=klantgegevens.KlantArray.length -1 ; i++ ){
             System.out.println(klantgegevens.KlantArray[i].Voornaam);
+            
             try{
-            Thread.sleep(3000); 
+            Thread.sleep(1000); 
             }catch(Exception e){
                 
             }
