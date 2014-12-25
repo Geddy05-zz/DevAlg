@@ -10,7 +10,8 @@ package algoritmiek;
  * @author geddyS
  */
 public class Algoritmiek {
-       public static klantGegevensBestand klantgegevens = new klantGegevensBestand();
+    public static klantGegevensBestand klantgegevens = new klantGegevensBestand();
+    public static Keys keys = new Keys();
     /**
      * @param args the command line arguments
      */
@@ -37,6 +38,8 @@ public class Algoritmiek {
         for(int i = 0; i <=klantgegevens.KlantArray.length -1 ; i++ ){
             System.out.println(klantgegevens.KlantArray[i].Achternaam);
         }
+
+        new Thread(new UpdateOrders()).start();
     }
     
 }
