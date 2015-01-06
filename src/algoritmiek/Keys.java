@@ -1,6 +1,5 @@
 package algoritmiek;
 
-import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
@@ -11,9 +10,6 @@ public class Keys implements KeyListener {
 
     private boolean[] keys = new boolean[120];
     public boolean i;
-
-    public  Keys() {
-    }
 
     public void update() {
         i = keys[KeyEvent.VK_I];
