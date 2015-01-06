@@ -17,5 +17,11 @@ public class BestelInformatie {
     public String Duur;
     public boolean isFinished;
     public boolean isWaiting;
-    
+
+    public BestelInformatie (int klantID, int bestellingID, String startTijd, String duur) {
+        this.KlantId = klantID;
+        this.BestellingId = bestellingID;
+        this.startTijd = startTijd;
+        this.Duur = duur;
+    }
 }

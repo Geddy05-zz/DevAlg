@@ -21,7 +21,7 @@ public class Algoritmiek {
         MergeSort mergesort = new MergeSort();
         mergesort.sort(klantgegevens.KlantArray);
         // print merge sort on age
-        for(int i = 0; i <=klantgegevens.KlantArray.length -1 ; i++ ){
+        for(int i = 0; i < klantgegevens.KlantArray.length; i++ ){
             System.out.println(klantgegevens.KlantArray[i].Voornaam);        
         }
         //Print linearsearch on Last name
@@ -39,7 +39,7 @@ public class Algoritmiek {
             System.out.println(klantgegevens.KlantArray[i].Achternaam);
         }
 
-        new Thread(new UpdateOrders()).start();
+        new Thread(new UpdateOrders(keys)).start();
     }
     
 }
