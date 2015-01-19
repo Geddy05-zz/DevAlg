@@ -11,7 +11,6 @@ package algoritmiek;
  */
 public class Algoritmiek {
     public static klantGegevensBestand klantgegevens = new klantGegevensBestand();
-    public static Keys keys = new Keys();
     /**
      * @param args the command line arguments
      */
@@ -39,7 +38,7 @@ public class Algoritmiek {
             System.out.println(klantgegevens.KlantArray[i].Achternaam);
         }
 
-        new Thread(new UpdateOrders(keys)).start();
+        new Thread(new UpdateOrders()).start();
     }
     
 }

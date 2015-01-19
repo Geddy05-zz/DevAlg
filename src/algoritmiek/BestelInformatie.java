@@ -5,6 +5,8 @@
  */
 package algoritmiek;
 
+import java.util.Date;
+
 /**
  *
  * @author geddyS
@@ -13,12 +15,13 @@ public class BestelInformatie {
     public int KlantId;
     public int BestellingId;
     public boolean isVerwerkt;
-    public String startTijd;
-    public String Duur;
+    public Date startTijd;
+    // duur in miliseconds
+    public int Duur;
     public boolean isFinished;
     public boolean isWaiting;
 
-    public BestelInformatie (int klantID, int bestellingID, String duur) {
+    public BestelInformatie (int klantID, int bestellingID, int duur) {
         this.KlantId = klantID;
         this.BestellingId = bestellingID;
         this.Duur = duur;
