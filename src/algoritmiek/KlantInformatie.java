@@ -19,9 +19,9 @@ public class KlantInformatie {
     public String Plaats;
     public String Email; 
     
-    public KlantInformatie(int klantid,String achternaam,String tussenvoegsel,String voornaam,int leeftijd,String geslacht,String plaats,String email)
+    public KlantInformatie(String achternaam,String tussenvoegsel,String voornaam,int leeftijd,String geslacht,String plaats,String email)
     {
-        KlantID = klantid;
+        KlantID = leeftijd*Character.getNumericValue(achternaam.charAt(1))*Character.getNumericValue(voornaam.charAt(1))*Character.getNumericValue(email.charAt(1));
         Achternaam = achternaam;
         Tussenvoegsel = tussenvoegsel;
         Voornaam = voornaam;
@@ -30,9 +30,9 @@ public class KlantInformatie {
         Plaats = plaats;
         Email = email;
     }
-    public KlantInformatie(int klantid,String achternaam,String voornaam,int leeftijd,String geslacht,String plaats,String email)
+    public KlantInformatie(String achternaam,String voornaam,int leeftijd,String geslacht,String plaats,String email)
     {
-        KlantID = klantid;
+        KlantID = leeftijd*Character.getNumericValue(achternaam.charAt(1))*Character.getNumericValue(voornaam.charAt(1))*Character.getNumericValue(email.charAt(1));
         Achternaam = achternaam;
         Voornaam = voornaam;
         Leeftijd = leeftijd;
