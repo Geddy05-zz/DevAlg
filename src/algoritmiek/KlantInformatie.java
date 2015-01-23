@@ -21,7 +21,7 @@ public class KlantInformatie {
     
     public KlantInformatie(String achternaam,String tussenvoegsel,String voornaam,int leeftijd,String geslacht,String plaats,String email)
     {
-        KlantID = leeftijd*Character.getNumericValue(achternaam.charAt(1))*Character.getNumericValue(voornaam.charAt(1))*Character.getNumericValue(email.charAt(1));
+        KlantID = Character.getNumericValue(achternaam.charAt(1))+Character.getNumericValue(voornaam.charAt(1));
         Achternaam = achternaam;
         Tussenvoegsel = tussenvoegsel;
         Voornaam = voornaam;
@@ -32,7 +32,7 @@ public class KlantInformatie {
     }
     public KlantInformatie(String achternaam,String voornaam,int leeftijd,String geslacht,String plaats,String email)
     {
-        KlantID = leeftijd*Character.getNumericValue(achternaam.charAt(1))*Character.getNumericValue(voornaam.charAt(1))*Character.getNumericValue(email.charAt(1));
+        KlantID = Character.getNumericValue(achternaam.charAt(1))+Character.getNumericValue(voornaam.charAt(1));
         Achternaam = achternaam;
         Voornaam = voornaam;
         Leeftijd = leeftijd;
