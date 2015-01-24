@@ -21,9 +21,10 @@ public class BestelInformatie {
     public boolean isFinished;
     public boolean isWaiting;
 
-    public BestelInformatie (int klantID, int bestellingID, int duur) {
+    public BestelInformatie (int klantID, int bestellingID, int duur, boolean isWaiting) {
         this.KlantId = klantID;
         this.BestellingId = bestellingID;
         this.Duur = duur;
+        this.isWaiting = isWaiting;
     }
 }
