@@ -63,6 +63,7 @@ public class UpdateOrders implements Runnable {
                     longerIsFinished = true;
                 }
             }
+            if (longerIsFinished && dadelijkeIsFinished) running = false;
         }
     }
 
