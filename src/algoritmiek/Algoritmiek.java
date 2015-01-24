@@ -51,11 +51,8 @@ public class Algoritmiek {
         
         btree.start();
         
-            System.out.println("************************* QUEUE ******************************");
+        System.out.println("************************* QUEUE ******************************");
         new Thread(new UpdateOrders()).start();
-        
-
-        
     }
     
 }

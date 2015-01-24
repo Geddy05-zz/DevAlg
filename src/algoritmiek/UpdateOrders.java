@@ -39,11 +39,26 @@ public class UpdateOrders implements Runnable {
                 longerOrders.add(allOrders.get(i));
             }
         }
+        System.out.println("----------------All orders in the order they were inserted to the system-----------------");
+        for (int i = 0; i < allOrders.size(); i++) {
+            System.out.println(i + ":  Dadelijk: " +  allOrders.get(i).isWaiting + "  KlantID: " + allOrders.get(i).KlantId);
+        }
+
+        System.out.println("----------------All orders enqueued for the dadelijke machine----------------------------");
+        for (int i = 0; i < dadelijkeOrders.size(); i++) {
+            System.out.println(i + ":  Dadelijk: " +  dadelijkeOrders.get(i).isWaiting + "  KlantID: " + dadelijkeOrders.get(i).KlantId);
+        }
+
+        System.out.println("----------------All orders enqueued for the longer machine-------------------------------");
+        for (int i = 0; i < longerOrders.size(); i++) {
+            System.out.println(i + ":  Dadelijk: " +  longerOrders.get(i).isWaiting + "  KlantID: " + longerOrders.get(i).KlantId);
+        }
     }
 
     private boolean dadelijkeIsFinished, longerIsFinished;
 
     public void run() {
+        System.out.println("----------------Starting both machines at the same time----------------------------------");
         running = true;
         while(running) {
             if (!dadelijkeOrders.isEmpty()) {

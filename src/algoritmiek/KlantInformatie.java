@@ -5,10 +5,6 @@
  */
 package algoritmiek;
 
-/**
- *
- * @author geddyS
- */
 public class KlantInformatie {
     public int KlantID;
     public String Achternaam;
