@@ -25,7 +25,7 @@ public class Algoritmiek {
         // print merge sort on age
         System.out.println("***********************  merge sort on age ******************************");
         for(int i = 0; i < klantgegevens.KlantArray.length; i++ ){
-            System.out.print(klantgegevens.KlantArray[i].KlantID+ " ");
+            System.out.print(klantgegevens.KlantArray[i].Leeftijd+ " ");
             System.out.println(klantgegevens.KlantArray[i].Voornaam);        
         }
         //Print linearsearch on Last name
@@ -48,6 +48,11 @@ public class Algoritmiek {
         for(int i = 0; i <=klantgegevens.KlantArray.length -1 ; i++ ){
             System.out.println(klantgegevens.KlantArray[i].Achternaam);
         }
+        
+        System.out.println("***********************  binarySearch ******************************");
+        mergesort.binarySearch("Bruin");
+        mergesort.binarySearchdouble("Bruin");
+        
         
         btree.start();
         

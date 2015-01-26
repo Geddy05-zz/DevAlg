@@ -7,6 +7,7 @@ package algoritmiek;
 
 import static algoritmiek.Algoritmiek.klantgegevens;
 
+
 /**
  *
  * @author geddyS
@@ -84,4 +85,55 @@ public class MergeSort {
 
         }
     
+    public void insertionSortpreformed (KlantInformatie inputArray[]){
+            int i = inputArray.length;
+            KlantInformatie key = inputArray[i];
+            int j = i-1;
+            while(j >= 0 && inputArray[j].Achternaam.compareToIgnoreCase(key.Achternaam) > 0){
+                   inputArray[j+1] = inputArray[j];
+                   j--;
+                }
+                inputArray[j+1] = key;
+            }
+
+        
+    
+    
+    public void binarySearch(String value){
+        int low =0;
+        int high=klantgegevens.KlantArray.length -1;
+        
+        while(low <= high){
+            int middle = (high+low)/2;
+            
+            if(klantgegevens.KlantArray[middle].Achternaam.compareTo(value)< 0){
+                low = middle+1;
+            }else if(klantgegevens.KlantArray[middle].Achternaam.compareTo(value)> 0){
+                high = middle -1;
+            }else{
+                System.out.println("Klant gevonden op Index"+ middle);
+                low = high +1 ;
+            }
+        }
+    }
+    
+    public void binarySearchdouble(String value){
+        KlantInformatie KlantArray[] = klantgegevens.KlantArray;
+        int low =0;
+        int high=klantgegevens.KlantArray.length -1;
+        
+        for(int i = 0; i <KlantArray.length;i++ ){
+            int middle = (high+low)/2;
+            
+            if(KlantArray[middle].Achternaam.compareTo(value)< 0){
+                low = middle+1;
+            }else if(KlantArray[middle].Achternaam.compareTo(value)> 0){
+                high = middle -1;
+            }else{
+                KlantArray[middle].Achternaam = "a";
+                System.out.println("Klant gevonden op Index"+ middle);
+                low = high +1 ;
+            }
+        }
+    }
 }
