@@ -113,10 +113,10 @@ public class Binarytree {
         KlantInformatie parent = root;
         boolean isItLeft =true;
         
-        while(focusNode.klantinfo.KlantID != key){
+        while(focusNode.KlantID != key){
             parent = focusNode;
             
-            if(key < focusNode.klantinfo.KlantID){
+            if(key < focusNode.KlantID){
                 isItLeft = true;
                 focusNode = focusNode.leftChild;
                 
