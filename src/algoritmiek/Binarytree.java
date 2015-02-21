@@ -4,7 +4,7 @@ import static algoritmiek.Algoritmiek.klantgegevens;
 
 public class Binarytree {
     // the root node of the tree
-    BinaryTreeNode root;
+    KlantInformatie root;
     
     public void start(){
         insertionSort(klantgegevens.KlantArray);
@@ -12,7 +12,7 @@ public class Binarytree {
         // foreach customer in the array add a node representing
         // them into the binary tree
         for (KlantInformatie klantinfo : klantgegevens.KlantArray) {
-            AddNode(klantinfo);
+            newNode(klantinfo);
         }
 
         // show in onder traversal and deletion of a leaf
@@ -38,31 +38,27 @@ public class Binarytree {
     
     // this functions adds a leaf to the
     // binary tree
-    public void AddNode (KlantInformatie klantinfo){
-        BinaryTreeNode nNode = new BinaryTreeNode(klantinfo);
-        
-        if(root == null){
-            root=nNode;
-        }else{
-            BinaryTreeNode focusNode = root;
-            BinaryTreeNode parent;
+    public void newNode (KlantInformatie newNode){
+        boolean notFinish = true;
+        KlantInformatie focusNode = root;
+        KlantInformatie parentNode;
             
-            while(true){
-                parent = focusNode;
-                if(klantinfo.KlantID < focusNode.klantinfo.KlantID){
-                    focusNode = focusNode.leftChild;
+        while(notFinish){
+            parentNode = focusNode;
+                
+            if(newNode.KlantID < focusNode.KlantID){
+                focusNode =  parentNode.leftChild;
                     
-                    if(focusNode == null){
-                        parent.leftChild = nNode;
-                        return;
-                    }
-                }else{
-                    focusNode = focusNode.rightChild;
+                if (focusNode == null){
+                    parentNode.leftChild = newNode;
+                    notFinish = false;
+                }
+            }else{
+                focusNode =  parentNode.rightChild;
                     
-                    if (focusNode == null){
-                        parent.rightChild = nNode;
-                        return;
-                    }
+                if(focusNode == null){
+                    parentNode.rightChild = newNode;
+                    notFinish = false;
                 }
             }
         }
@@ -72,14 +68,14 @@ public class Binarytree {
     // the tree
 
     public void Remove(int leafKey) {
-        BinaryTreeNode focus = root;
-        BinaryTreeNode parent = root;
+        KlantInformatie focus = root;
+        KlantInformatie parent = root;
         boolean left = true;
 
-        while (focus.klantinfo.KlantID != leafKey) {
+        while (focus.KlantID != leafKey) {
             parent = focus;
 
-            if (leafKey < focus.klantinfo.KlantID) {
+            if (leafKey < focus.KlantID) {
                 left = true;
                 focus = focus.leftChild;
 
@@ -92,7 +88,7 @@ public class Binarytree {
         if (focus.leftChild == null && focus.rightChild == null) {
             if (focus == root) root = null;
             else {
-                BinaryTreeNode replace = getReplace(focus);
+                KlantInformatie replace = getReplace(focus);
             }
         } else if(focus.rightChild == null){
             if (focus == null) root = focus.leftChild;
@@ -103,7 +99,7 @@ public class Binarytree {
             else if (left) parent.leftChild = focus.rightChild;
             else parent.rightChild= focus.rightChild;
         } else {
-            BinaryTreeNode replace = getReplace(focus);
+            KlantInformatie replace = getReplace(focus);
             if(focus == root) root = replace;
             else if (left) parent.leftChild = replace;
             else {
@@ -113,8 +109,8 @@ public class Binarytree {
         }
     }
     public boolean remover(int key){
-        BinaryTreeNode focusNode = root; 
-        BinaryTreeNode parent = root;
+        KlantInformatie focusNode = root; 
+        KlantInformatie parent = root;
         boolean isItLeft =true;
         
         while(focusNode.klantinfo.KlantID != key){
@@ -148,7 +144,7 @@ public class Binarytree {
             else parent.rightChild= focusNode.rightChild;
         }
         else{
-            BinaryTreeNode replace = getReplace(focusNode);
+            KlantInformatie replace = getReplace(focusNode);
             
             if(focusNode == root) root = replace;
             
@@ -163,12 +159,12 @@ public class Binarytree {
         return true;
     }
     
-    public BinaryTreeNode getReplace ( BinaryTreeNode toReplaceNode){
+    public KlantInformatie getReplace ( KlantInformatie toReplaceNode){
         
-        BinaryTreeNode replaceParent = toReplaceNode;
-        BinaryTreeNode replace = toReplaceNode;
+        KlantInformatie replaceParent = toReplaceNode;
+        KlantInformatie replace = toReplaceNode;
         
-        BinaryTreeNode focusNode = toReplaceNode.rightChild;
+        KlantInformatie focusNode = toReplaceNode.rightChild;
         
         while(focusNode != null){
             replaceParent = replace;
@@ -185,12 +181,12 @@ public class Binarytree {
             
     }
     
-    private void InOrTraverse(BinaryTreeNode focusNode){
+    private void InOrTraverse(KlantInformatie focusNode){
         if(focusNode != null){
-            System.out.print(focusNode.klantinfo.KlantID+" ");
-            System.out.print(focusNode.klantinfo.Voornaam+" ");
-            System.out.print(focusNode.klantinfo.Achternaam+" ");
-            System.out.println(focusNode.klantinfo.Plaats+" ");
+            System.out.print(focusNode.KlantID+" ");
+            System.out.print(focusNode.Voornaam+" ");
+            System.out.print(focusNode.Achternaam+" ");
+            System.out.println(focusNode.Plaats+" ");
             if (focusNode.leftChild != null) InOrTraverse(focusNode.leftChild);
             if (focusNode.rightChild != null) InOrTraverse(focusNode.rightChild);
         }
@@ -201,6 +197,7 @@ public class Binarytree {
  * this class represents a single node in a
  * binary tree
  * */
+/*
 class BinaryTreeNode{
         KlantInformatie klantinfo;
         
@@ -211,4 +208,4 @@ class BinaryTreeNode{
         BinaryTreeNode(KlantInformatie x){
             this.klantinfo = x;
         }     
-    }
+    }*/

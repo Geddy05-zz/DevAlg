@@ -15,6 +15,9 @@ public class KlantInformatie {
     public String Plaats;
     public String Email; 
     
+    public KlantInformatie leftChild;
+    public KlantInformatie rightChild;
+    
     public KlantInformatie(String achternaam,String tussenvoegsel,String voornaam,int leeftijd,String geslacht,String plaats,String email)
     {
         KlantID = Character.getNumericValue(achternaam.charAt(1))+Character.getNumericValue(voornaam.charAt(1));
