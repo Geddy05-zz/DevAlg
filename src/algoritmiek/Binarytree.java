@@ -8,19 +8,23 @@ public class Binarytree {
     
     public void start(){
         insertionSort(klantgegevens.KlantArray);
-
+        root = klantgegevens.KlantArray[(klantgegevens.KlantArray.length/2)];
         // foreach customer in the array add a node representing
         // them into the binary tree
         for (KlantInformatie klantinfo : klantgegevens.KlantArray) {
-            newNode(klantinfo);
+            if(klantinfo.equals((klantgegevens.KlantArray.length/2))){
+                
+            }else{
+                newNode(klantinfo);
+            }
         }
 
         // show in onder traversal and deletion of a leaf
         System.out.println("***********************  Binarytree before Delete 1 node ******************************");
-        InOrTraverse(root);
-        Remove(26);
+        //InOrTraverse(root);
+        //Remove(26);
         System.out.println("***********************  Binarytree After Delete 1 node ******************************");
-        InOrTraverse(root);
+        //InOrTraverse(root);
     }
     
     public void insertionSort (KlantInformatie inputArray[]){

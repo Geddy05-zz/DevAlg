@@ -49,12 +49,17 @@ public class Algoritmiek {
             System.out.println(klantgegevens.KlantArray[i].Achternaam);
         }
         
+        
+        
+        
         System.out.println("***********************  binarySearch ******************************");
         mergesort.binarySearch("Bruin");
         mergesort.binarySearchdouble("Bruin");
         
         
         btree.start();
+        
+        
         
         System.out.println("************************* QUEUE ******************************");
         new Thread(new UpdateOrders()).start();
