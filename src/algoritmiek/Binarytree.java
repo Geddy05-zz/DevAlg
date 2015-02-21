@@ -1,28 +1,21 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package algoritmiek;
 
 import static algoritmiek.Algoritmiek.klantgegevens;
 
-/**
- *
- * @author geddyS
- */
-
 public class Binarytree {
+    // the root node of the tree
     BinaryTreeNode root;
     
     public void start(){
-
-        
         insertionSort(klantgegevens.KlantArray);
-        
+
+        // foreach customer in the array add a node representing
+        // them into the binary tree
         for (KlantInformatie klantinfo : klantgegevens.KlantArray) {
             AddNode(klantinfo);
         }
+
+        // show in onder traversal and deletion of a leaf
         System.out.println("***********************  Binarytree before Delete 1 node ******************************");
         InOrTraverse(root);
         remover(26);
@@ -35,16 +28,16 @@ public class Binarytree {
             KlantInformatie key = inputArray[i];
             int j = i-1;
             while(j >= 0 && inputArray[j].KlantID == key.KlantID){
-                   inputArray[j+1] = inputArray[j];
-                   j--;
-                }
-                inputArray[j+1] = key;
+               inputArray[j+1] = inputArray[j];
+               j--;
             }
-
+            inputArray[j+1] = key;
         }
+    }
     
     
-    
+    // this functions adds a leaf to the
+    // binary tree
     public void AddNode (KlantInformatie klantinfo){
         BinaryTreeNode nNode = new BinaryTreeNode(klantinfo);
         
@@ -74,8 +67,52 @@ public class Binarytree {
             }
         }
     }
-    
-        public boolean remover(int key){
+
+    // remove a leaf containing a specified key value from
+    // the tree
+
+    public void Remove(int leafKey) {
+        BinaryTreeNode focus = root;
+        BinaryTreeNode parent = root;
+        boolean left = true;
+
+        while (focus.klantinfo.KlantID != leafKey) {
+            parent = focus;
+
+            if (leafKey < focus.klantinfo.KlantID) {
+                left = true;
+                focus = focus.leftChild;
+
+            } else {
+                left = false;
+                focus = focus.rightChild;
+            }
+            if (focus == null) break;
+        }
+        if (focus.leftChild == null && focus.rightChild == null) {
+            if (focus == root) root = null;
+            else {
+                BinaryTreeNode replace = getReplace(focus);
+            }
+        } else if(focus.rightChild == null){
+            if (focus == null) root = focus.leftChild;
+            else if (left) parent.leftChild = focus.leftChild;
+            else parent.rightChild= focus.leftChild;
+        } else if(focus.leftChild == null){
+            if (focus == null) root = focus.rightChild;
+            else if (left) parent.leftChild = focus.rightChild;
+            else parent.rightChild= focus.rightChild;
+        } else {
+            BinaryTreeNode replace = getReplace(focus);
+            if(focus == root) root = replace;
+            else if (left) parent.leftChild = replace;
+            else {
+                parent.rightChild = replace;
+                replace.leftChild = focus.leftChild;
+            }
+        }
+    }
+    public boolean remover(int key){
         BinaryTreeNode focusNode = root; 
         BinaryTreeNode parent = root;
         boolean isItLeft =true;
@@ -160,6 +197,10 @@ public class Binarytree {
     }
     
 }
+/**
+ * this class represents a single node in a
+ * binary tree
+ * */
 class BinaryTreeNode{
         KlantInformatie klantinfo;
         
