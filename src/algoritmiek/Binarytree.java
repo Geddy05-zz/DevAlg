@@ -18,7 +18,7 @@ public class Binarytree {
         // show in onder traversal and deletion of a leaf
         System.out.println("***********************  Binarytree before Delete 1 node ******************************");
         InOrTraverse(root);
-        remover(26);
+        Remove(26);
         System.out.println("***********************  Binarytree After Delete 1 node ******************************");
         InOrTraverse(root);
     }
@@ -87,7 +87,7 @@ public class Binarytree {
                 left = false;
                 focus = focus.rightChild;
             }
-            if (focus == null) break;
+            if (focus == null) return;
         }
         if (focus.leftChild == null && focus.rightChild == null) {
             if (focus == root) root = null;
@@ -187,12 +187,12 @@ public class Binarytree {
     
     private void InOrTraverse(BinaryTreeNode focusNode){
         if(focusNode != null){
-            InOrTraverse(focusNode.leftChild);
             System.out.print(focusNode.klantinfo.KlantID+" ");
             System.out.print(focusNode.klantinfo.Voornaam+" ");
             System.out.print(focusNode.klantinfo.Achternaam+" ");
             System.out.println(focusNode.klantinfo.Plaats+" ");
-            InOrTraverse(focusNode.rightChild);
+            if (focusNode.leftChild != null) InOrTraverse(focusNode.leftChild);
+            if (focusNode.rightChild != null) InOrTraverse(focusNode.rightChild);
         }
     }
     
